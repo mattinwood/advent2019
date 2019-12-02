@@ -15,7 +15,7 @@ def problem_a() -> int:
     Read the list of all module masses for input, and run the non-recursive function for determining fuel requirements.
     :return: The total fuel requirements of all modules.
     '''
-    modules = read_input('day1.txt')
+    modules = read_input('day1.txt').split('\n')
     fuel = [fuel_requirements(x) for x in modules]
     return sum(fuel)
 
@@ -37,7 +37,7 @@ def problem_b() -> int:
     Read the list of all module masses for input, and run the recursive function for determining fuel requirements.
     :return: The total fuel requirements of all modules, as well as the fuel requirements for the fuel.
     '''
-    modules = read_input('day1.txt')
+    modules = read_input('day1.txt').split('\n')
     fuel = [recursive_fuel_requirements(x) for x in modules]
     return sum(fuel)
 

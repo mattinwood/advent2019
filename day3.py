@@ -22,11 +22,12 @@ def problem_b(wires):
 
 class Circuit:
     def __init__(self, instructions):
+        self.instructions = instructions
+
         self.board = []
-        self.distances = []
         self.dedepud_board = []
         self.current_location = [0, 0]
-        self.instructions = instructions
+
         self.intersections = None
         self.shortest_distance = None
         self.shortest_path = None
@@ -35,7 +36,6 @@ class Circuit:
         for i, instruction in enumerate(self.instructions):
             self.current_location = [0, 0]
             self.board.append([])
-            self.distances.append([])
             for step in instruction:
                 self.walk_path(step, i)
 
@@ -56,7 +56,6 @@ class Circuit:
             elif drct == 'L':
                 self.current_location[0] -= 1
             self.board[path_idx].append(self.current_location[:])
-        self.distances[path_idx].append(dist)
 
     def dedupe_paths(self):
         for path in self.board:
